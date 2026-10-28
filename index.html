@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7652a1">
+  <meta name="description" content="Maman Solo : organisation, ressources utiles et sorties entre mamans avec enfants.">
+  <title>Maman Solo — Ensemble, c'est plus simple</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <a class="brand" href="#accueil" aria-label="Maman Solo, accueil">
+      <span class="brand-mark" aria-hidden="true">♡</span>
+      <span><strong>Maman Solo</strong><small>Ensemble, c’est plus simple.</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    <nav id="mainNav" class="main-nav" aria-label="Navigation principale">
+      <a href="#sorties">On y va ensemble</a>
+      <a href="#quotidien">Mon quotidien</a>
+      <a href="#ressources">Aides & budget</a>
+      <a href="#bien-etre">Sport & bien-être</a>
+      <a href="#securite">Sécurité</a>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="accueil">
+      <div class="hero-copy">
+        <span class="eyebrow">UN ESPACE POUR SOUFFLER ET AVANCER</span>
+        <h1>Tu n’as pas à tout faire <em>seule.</em></h1>
+        <p>Maman Solo rassemble des idées pour s’organiser, repérer les ressources utiles et rencontrer d’autres mamans pour des loisirs avec les enfants.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#sorties">Trouver une sortie</a>
+          <a class="button secondary" href="#quotidien">Découvrir les outils</a>
+        </div>
+        <p class="micro-note"><span class="dot"></span> Gratuit pour commencer · Accessible sur téléphone et ordinateur</p>
+      </div>
+      <div class="hero-art" aria-label="Illustration décorative">
+        <div class="sun"></div><div class="art-card art-card-one"><span>🌿</span><strong>Un peu de temps pour toi</strong><small>À ton rythme</small></div>
+        <div class="art-card art-card-two"><span>🤝</span><strong>Des sorties partagées</strong><small>En toute simplicité</small></div>
+        <div class="art-circle">💜</div>
+      </div>
+    </section>
+
+    <section class="section intro-section">
+      <div class="section-heading">
+        <span class="eyebrow">TOUT AU MÊME ENDROIT</span>
+        <h2>Qu’est-ce qui te ferait du bien aujourd’hui ?</h2>
+        <p>Choisis une rubrique et avance une étape à la fois.</p>
+      </div>
+      <div class="feature-grid">
+        <a class="feature-card lilac" href="#ressources"><span class="feature-icon">🧾</span><h3>Aides & budget</h3><p>Repérer les organismes utiles et mieux préparer son budget.</p><span class="card-link">Explorer →</span></a>
+        <a class="feature-card green" href="#quotidien"><span class="feature-icon">🗓️</span><h3>Mon organisation</h3><p>Un planning simple et une liste de priorités.</p><span class="card-link">M’organiser →</span></a>
+        <a class="feature-card peach" href="#bons-plans"><span class="feature-icon">📍</span><h3>Bons plans</h3><p>Des idées d’activités et de ressources près de chez toi.</p><span class="card-link">Voir les idées →</span></a>
+        <a class="feature-card pink" href="#entraide"><span class="feature-icon">💬</span><h3>Entraide</h3><p>Des façons de créer du lien et de demander du soutien.</p><span class="card-link">Découvrir →</span></a>
+        <a class="feature-card blue" href="#bien-etre"><span class="feature-icon">🌷</span><h3>Sport & bien-être</h3><p>Bouger, respirer et trouver des activités accessibles.</p><span class="card-link">Prendre du temps →</span></a>
+        <a class="feature-card cream" href="#sorties"><span class="feature-icon">🧺</span><h3>On y va ensemble</h3><p>Proposer ou rejoindre une sortie avec les enfants.</p><span class="card-link">Trouver un groupe →</span></a>
+      </div>
+    </section>
+
+    <section class="section outings-section" id="sorties">
+      <div class="section-heading split-heading">
+        <div><span class="eyebrow">ON Y VA ENSEMBLE</span><h2>Des loisirs à partager</h2><p>Découvre des idées de sorties ou ajoute la tienne.</p></div>
+        <span class="pill">Rayon souhaité : jusqu’à 20 km</span>
+      </div>
+      <div class="notice notice-info"><strong>Version de démonstration :</strong> les sorties ci-dessous sont des exemples. Les inscriptions et ajouts sont enregistrés uniquement dans ce navigateur et ne sont pas partagés avec d’autres personnes.</div>
+      <div class="filter-bar">
+        <label>Activité
+          <select id="activityFilter">
+            <option value="all">Toutes les activités</option>
+            <option value="Pique-nique">Pique-nique</option>
+            <option value="Promenade">Promenade</option>
+            <option value="Loisirs créatifs">Loisirs créatifs</option>
+            <option value="Jeux au parc">Jeux au parc</option>
+            <option value="Culture">Culture</option>
+          </select>
+        </label>
+        <label>Zone / commune
+          <input id="areaFilter" type="text" placeholder="Ex. : ma commune" maxlength="60">
+        </label>
+        <label>Distance souhaitée
+          <select id="distanceFilter">
+            <option value="20">Jusqu’à 20 km</option>
+            <option value="10">Jusqu’à 10 km</option>
+            <option value="5">Jusqu’à 5 km</option>
+          </select>
+        </label>
+        <button class="button primary" id="showCreate">+ Proposer une sortie</button>
+      </div>
+      <div id="outingList" class="outing-grid" aria-live="polite"></div>
+      <p class="empty-state hidden" id="emptyState">Aucune sortie ne correspond à ces filtres. Tu peux en proposer une !</p>
+
+      <div class="form-panel hidden" id="createPanel">
+        <div class="form-panel-heading"><div><span class="eyebrow">À TOI DE PROPOSER</span><h3>Créer une sortie</h3></div><button class="icon-button" id="closeCreate" aria-label="Fermer">✕</button></div>
+        <form id="outingForm">
+          <div class="form-grid">
+            <label>Nom de l’activité<input name="title" required maxlength="70" placeholder="Ex. : jeux et goûter au parc"></label>
+            <label>Type d’activité<select name="activity" required><option value="Pique-nique">Pique-nique</option><option value="Promenade">Promenade</option><option value="Loisirs créatifs">Loisirs créatifs</option><option value="Jeux au parc">Jeux au parc</option><option value="Culture">Culture</option></select></label>
+            <label>Commune ou secteur approximatif<input name="area" required maxlength="60" placeholder="Ex. : centre-ville (pas d’adresse personnelle)"></label>
+            <label>Date<input name="date" type="date" required></label>
+            <label>Heure<input name="time" type="time" required></label>
+            <label>Nombre de places pour les mamans<input name="spots" type="number" min="2" max="20" value="5" required></label>
+          </div>
+          <label>Description (facultatif)<textarea name="description" rows="3" maxlength="300" placeholder="Précise si les enfants sont les bienvenus, le coût éventuel et ce qu’il faut prévoir."></textarea></label>
+          <label class="check-label"><input name="kids" type="checkbox" checked> Les enfants sont les bienvenus</label>
+          <p class="form-hint">Choisis un lieu public. N’ajoute aucun numéro de téléphone, adresse privée ou renseignement sur les enfants.</p>
+          <div class="form-actions"><button class="button primary" type="submit">Ajouter à cette démo</button><button class="button secondary" type="button" id="cancelCreate">Annuler</button></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section daily-section" id="quotidien">
+      <div class="section-heading"><span class="eyebrow">MON QUOTIDIEN</span><h2>Une petite étape à la fois</h2><p>Un outil simple pour organiser sa semaine sans pression.</p></div>
+      <div class="daily-grid">
+        <div class="panel">
+          <h3>Ma liste de priorités</h3>
+          <p class="muted">Cette liste est sauvegardée sur cet appareil uniquement.</p>
+          <form id="taskForm" class="inline-form"><input id="taskInput" maxlength="120" placeholder="Ex. : appeler l’école" aria-label="Nouvelle tâche" required><button class="button primary" type="submit">Ajouter</button></form>
+          <ul id="taskList" class="task-list"></ul>
+        </div>
+        <div class="panel soft-lilac">
+          <span class="big-icon">🪴</span><h3>Une idée pour aujourd’hui</h3>
+          <p>Choisis une seule petite chose importante, puis accorde-toi le droit de faire le reste plus tard.</p>
+          <button class="button secondary" id="newTip">Une autre idée</button>
+          <p class="tip-output" id="tipOutput" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section resources-section" id="ressources">
+      <div class="section-heading"><span class="eyebrow">S’ORIENTER SANS SE PERDRE</span><h2>Aides & budget</h2><p>Maman Solo aide à trouver les bons points de départ, mais les organismes officiels restent la référence pour confirmer les droits.</p></div>
+      <div class="resource-grid">
+        <article class="resource-card"><span>🏠</span><h3>Famille et prestations</h3><p>Consulte les informations officielles sur les prestations familiales et les situations de parent isolé.</p><a href="https://www.caf.fr/" target="_blank" rel="noopener noreferrer">Site officiel de la CAF ↗</a></article>
+        <article class="resource-card"><span>📑</span><h3>Démarches administratives</h3><p>Informations officielles sur les démarches, pièces à préparer et conditions applicables.</p><a href="https://www.service-public.fr/" target="_blank" rel="noopener noreferrer">Service-Public.fr ↗</a></article>
+        <article class="resource-card"><span>⚖️</span><h3>Pension alimentaire</h3><p>Informations et accompagnement concernant la pension alimentaire et son recouvrement.</p><a href="https://www.pension-alimentaire.caf.fr/" target="_blank" rel="noopener noreferrer">Pension alimentaire ↗</a></article>
+        <article class="resource-card"><span>💼</span><h3>Emploi et formation</h3><p>Pour rechercher un emploi, préparer un projet professionnel ou découvrir des formations.</p><a href="https://www.francetravail.fr/" target="_blank" rel="noopener noreferrer">France Travail ↗</a></article>
+      </div>
+      <div class="budget-tool panel">
+        <div><span class="eyebrow">MON BUDGET</span><h3>Faire le point sur le mois</h3><p class="muted">Calcul effectué dans ton navigateur. Ne saisis pas ici d’informations bancaires.</p></div>
+        <div class="budget-inputs">
+          <label>Revenus mensuels (€)<input id="income" type="number" min="0" step="0.01" placeholder="0"></label>
+          <label>Dépenses mensuelles (€)<input id="expenses" type="number" min="0" step="0.01" placeholder="0"></label>
+          <button class="button primary" id="calculateBudget">Calculer</button>
+        </div>
+        <p class="budget-result" id="budgetResult" aria-live="polite">Entre tes montants pour obtenir une estimation.</p>
+      </div>
+    </section>
+
+    <section class="section local-section" id="bons-plans">
+      <div class="section-heading"><span class="eyebrow">PRÈS DE CHEZ TOI</span><h2>Des idées accessibles</h2><p>À vérifier selon ta commune, les horaires et les conditions d’accueil.</p></div>
+      <div class="feature-grid compact-grid">
+        <article class="feature-card green"><span class="feature-icon">🌳</span><h3>Parcs et promenades</h3><p>Repère un espace public adapté aux enfants et vérifie les accès avant de partir.</p></article>
+        <article class="feature-card peach"><span class="feature-icon">📚</span><h3>Médiathèques</h3><p>Les médiathèques proposent parfois des lectures, ateliers et activités gratuites.</p></article>
+        <article class="feature-card blue"><span class="feature-icon">🏛️</span><h3>Activités municipales</h3><p>Consulte le site de ta mairie pour les événements, équipements et activités familiales.</p></article>
+      </div>
+      <p class="notice notice-info">Ces cartes sont des idées générales, pas un annuaire local vérifié. Une future version pourra inclure des ressources par commune, avec date de vérification.</p>
+    </section>
+
+    <section class="section wellbeing-section" id="bien-etre">
+      <div class="wellbeing-banner"><div><span class="eyebrow">SPORT & BIEN-ÊTRE</span><h2>Du mouvement, à ton rythme.</h2><p>Le but n’est pas d’en faire toujours plus, mais de trouver une activité qui te fait du bien et qui s’intègre à ta vie.</p></div><div class="wellbeing-emoji" aria-hidden="true">🌷</div></div>
+      <div class="resource-grid three">
+        <article class="resource-card"><span>🏡</span><h3>À la maison</h3><p>Étirements doux, danse ou séance débutante courte, selon tes envies et tes capacités.</p></article>
+        <article class="resource-card"><span>👟</span><h3>Avec les enfants</h3><p>Balade tranquille, jeux de mouvement ou découverte d’un parc ensemble.</p></article>
+        <article class="resource-card"><span>🤸</span><h3>En groupe</h3><p>Recherche les associations et activités municipales qui accueillent les débutantes et les familles.</p></article>
+      </div>
+    </section>
+
+    <section class="section community-section" id="entraide">
+      <div class="community-card">
+        <div class="community-symbol">♡</div><div><span class="eyebrow">ENTRAIDE ENTRE MAMANS</span><h2>Le lien se construit petit à petit.</h2><p>Tu peux commencer par une sortie de groupe dans un lieu public, participer à une activité associative ou proposer une rencontre simple.</p><a class="button primary" href="#sorties">Voir les sorties</a></div>
+      </div>
+    </section>
+
+    <section class="section safety-section" id="securite">
+      <div class="section-heading"><span class="eyebrow">LA SÉCURITÉ D’ABORD</span><h2>Quelques règles pour se rencontrer sereinement</h2></div>
+      <div class="safety-grid">
+        <div class="safety-item"><span>📍</span><div><h3>Lieu public</h3><p>Privilégie les parcs, médiathèques et lieux publics fréquentés pour une première rencontre.</p></div></div>
+        <div class="safety-item"><span>🔒</span><div><h3>Pas d’adresse privée</h3><p>Ne publie pas ton adresse, tes coordonnées privées ni les informations identifiantes de tes enfants.</p></div></div>
+        <div class="safety-item"><span>🙋</span><div><h3>Tu gardes le contrôle</h3><p>Tu peux refuser une sortie, annuler ta participation ou quitter un groupe à tout moment.</p></div></div>
+        <div class="safety-item"><span>🚩</span><div><h3>Signaler un problème</h3><p>Cette démo ne dispose pas encore d’une modération en ligne. Avant l’ouverture publique, il faudra un contact de signalement et une procédure de traitement.</p></div></div>
+      </div>
+      <div class="notice notice-warning"><strong>Avant l’ouverture au public :</strong> cette maquette ne transmet pas les inscriptions à un administrateur et ne permet pas encore aux utilisatrices de se voir en temps réel. Ne l’utilise pas pour organiser de vraies rencontres tant que le partage des données, la modération et les règles de confidentialité n’ont pas été configurés et testés.</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#accueil"><span class="brand-mark">♡</span><span><strong>Maman Solo</strong><small>Ensemble, c’est plus simple.</small></span></a>
+    <p>Un projet en construction, avec bienveillance et respect de la vie privée.</p>
+    <div class="footer-links"><a href="#securite">Sécurité</a><a href="#ressources">Ressources officielles</a><a href="mailto:contact@example.com" id="contactLink">Contact (à configurer)</a></div>
+    <small>© <span id="year"></span> Maman Solo · Prototype de démonstration</small>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
